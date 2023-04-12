@@ -1,0 +1,2 @@
+class Jobseekerprofile < ApplicationRecord
+end
