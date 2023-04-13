@@ -1,2 +1,0 @@
-class EmployerprofilesController < ApplicationController
-end
