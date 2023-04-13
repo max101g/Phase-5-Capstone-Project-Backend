@@ -1,6 +1,6 @@
 class CreateEmployers < ActiveRecord::Migration[7.0]
   def change
-    create_table :employers do |t|
+    create_table :employers, id: :string do |t|
       t.string :code
       t.string :company_name
       t.string :email
@@ -11,5 +11,6 @@ class CreateEmployers < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :employers, :code, unique: true
   end
 end

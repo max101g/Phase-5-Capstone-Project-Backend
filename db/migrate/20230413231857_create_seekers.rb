@@ -1,6 +1,6 @@
 class CreateSeekers < ActiveRecord::Migration[7.0]
   def change
-    create_table :seekers do |t|
+    create_table :seekers, id: :string do |t|
       t.string :code
       t.string :full_name
       t.string :email
@@ -16,5 +16,6 @@ class CreateSeekers < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :seekers, :code, unique: true
   end
 end
