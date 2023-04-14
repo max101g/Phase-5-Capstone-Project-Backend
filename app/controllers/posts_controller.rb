@@ -21,7 +21,7 @@ class PostsController < ApplicationController
         render json: post, status: :ok
     end
 
-    # '/post/:id' deletes an post of id in params(Delete by destroy)
+    # '/post/:id' deletes a post of id in params(Delete by destroy)
     def destroy
         post = find_post
         post.destroy

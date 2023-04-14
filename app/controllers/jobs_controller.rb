@@ -21,7 +21,7 @@ class JobsController < ApplicationController
         render json: job, status: :ok
     end
 
-    # '/job/:id' deletes an job of id in params(Delete by destroy)
+    # '/job/:id' deletes a job of id in params(Delete by destroy)
     def destroy
         job = find_job
         job.destroy

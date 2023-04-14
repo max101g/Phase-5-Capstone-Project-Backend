@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     # '/comment/:id' edits an comment of id in params(Update)
     def update
         comment = find_comment
-        comment.update!(comment_params)
+        comment.update(comment_params)
         render json: comment
     end
 
