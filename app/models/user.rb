@@ -12,4 +12,7 @@ class User < ApplicationRecord
     belongs_to :admin
     belongs_to :employer
     belongs_to :seeker
+
+    has_many :posts
+    has_many :comments
 end

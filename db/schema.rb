@@ -99,6 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_232838) do
     t.string "username"
     t.string "password_digest"
     t.string "role"
+    t.string "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_code"], name: "index_users_on_user_code", unique: true

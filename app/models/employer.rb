@@ -8,4 +8,5 @@ class Employer < ApplicationRecord
 
     # relations
     has_one :user
+    has_many :jobs
 end
