@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     def create
-        post = Post.create(post_code: generate_code(12), title:params[:title], media:params[:media], description: params[:description], likes: params[:likes], user_code: params[:post_code])
+        post = Post.create(post_code: generate_code(12), title:params[:title], media:params[:media], description: params[:description], likes: params[:likes], user_code: params[:user_code])
         render json: post, status: :created
     end
 
@@ -19,6 +19,12 @@ class PostsController < ApplicationController
         post = find_post
         post.update!(post_params)
         render json: post, status: :ok
+    end
+
+    # show an array of all user posts
+    def user_posts
+        posts_array = Post.where(user_code: params[:user_code])
+        render json: posts_array, status: :ok
     end
 
     # '/post/:id' deletes a post of id in params(Delete by destroy)
