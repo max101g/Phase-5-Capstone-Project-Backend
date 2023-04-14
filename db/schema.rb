@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_232838) do
     t.string "admin_code"
     t.string "full_name"
     t.string "email"
+    t.string "user_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_code"], name: "index_admins_on_admin_code", unique: true
@@ -41,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_232838) do
     t.string "avatar"
     t.string "description"
     t.boolean "verified"
+    t.string "user_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["employer_code"], name: "index_employers_on_employer_code", unique: true
@@ -89,6 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_232838) do
     t.string "availability"
     t.integer "minimum_salary"
     t.boolean "verified"
+    t.string "user_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["seeker_code"], name: "index_seekers_on_seeker_code", unique: true
@@ -99,7 +102,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_13_232838) do
     t.string "username"
     t.string "password_digest"
     t.string "role"
-    t.string "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_code"], name: "index_users_on_user_code", unique: true

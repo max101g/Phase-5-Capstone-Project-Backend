@@ -9,9 +9,9 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true
 
     # relations
-    belongs_to :admin
-    belongs_to :employer
-    belongs_to :seeker
+    has_one :employer, foreign_key: :user_code
+    has_one :seeker, foreign_key: :user_code
+    has_one :admin, foreign_key: :user_code
 
     has_many :posts
     has_many :comments
