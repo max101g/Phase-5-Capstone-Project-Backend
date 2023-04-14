@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   patch "/employers/:id/verify",to: "employers#verify"
   patch "/seekers/:id/verify", to: "seekers#verify"
 
+  # custom job search, e.g. find doctor jobs
+  get "/jobs/search/:jobtag_code", to: "jobs#search"
+
   # Defines the root path route ("/")
   # root "articles#index"
 end

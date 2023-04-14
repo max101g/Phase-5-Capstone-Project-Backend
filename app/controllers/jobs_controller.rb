@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
     def create
-        job = Job.create(job_code: generate_code(12), name:params[:name], jobtag_code: params[:jobtag_code], employer_code: params[:employer_code])
+        job = Job.create(job_code: generate_code(12), job_name: params[:job_name], jobtag_code: params[:jobtag_code], employer_code: params[:employer_code])
         render json: job, status: :created
     end
 
@@ -19,6 +19,12 @@ class JobsController < ApplicationController
         job = find_job
         job.update!(job_params)
         render json: job, status: :ok
+    end
+    
+    # allows searching for jobs based on tags and renders them
+    def search
+        jobs = Job.where(jobtag_code: params[:jobtag_code])
+        render json: jobs, status: :ok
     end
 
     # '/job/:id' deletes a job of id in params(Delete by destroy)

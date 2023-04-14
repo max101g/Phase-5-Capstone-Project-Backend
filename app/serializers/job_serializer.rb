@@ -1,5 +1,6 @@
 class JobSerializer < ActiveModel::Serializer
-  attributes :job_code, :job_name, :employer_code, :jobtag_code
+  attributes :job_code, :job_name, :employer_code
 
   belongs_to :employer
+  belongs_to :jobtag
 end

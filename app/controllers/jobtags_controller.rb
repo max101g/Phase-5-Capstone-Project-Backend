@@ -1,6 +1,6 @@
 class JobtagsController < ApplicationController
     def create
-        job_tag = Jobtag.create(jobtag_code: generate_code(12), group_name: params[group_name])
+        job_tag = Jobtag.create(jobtag_code: generate_code(12), group_name: params[:group_name])
         render json: job_tag, status: :created
     end 
     
