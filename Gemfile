@@ -21,7 +21,6 @@ gem "racc", "~> 1.4.0"
 gem "importmap-rails"
 
 gem "active_model_serializers", "~> 0.10.12"
-gem 'bcrypt', '~> 3.1.7'
 gem 'faker', '~> 2.18.0'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
@@ -33,6 +32,7 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -40,7 +40,7 @@ gem "jbuilder"
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
