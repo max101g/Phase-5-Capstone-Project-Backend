@@ -7,6 +7,6 @@ class Employer < ApplicationRecord
     validates :email, presence: true, uniqueness: true
 
     # relations
-    has_one :user
+    belongs_to :user, foreign_key: :user_code
     has_many :jobs
 end
