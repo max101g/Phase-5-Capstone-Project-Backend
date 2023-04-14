@@ -9,6 +9,8 @@ class CreateEmployers < ActiveRecord::Migration[7.0]
       t.string :description
       t.boolean :verified
 
+      t.string :user_code
+
       t.timestamps
     end
     add_index :employers, :employer_code, unique: true

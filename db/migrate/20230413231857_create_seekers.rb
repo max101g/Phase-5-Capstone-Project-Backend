@@ -14,6 +14,8 @@ class CreateSeekers < ActiveRecord::Migration[7.0]
       t.integer :minimum_salary
       t.boolean :verified
 
+      t.string :user_code
+
       t.timestamps
     end
     add_index :seekers, :seeker_code, unique: true
