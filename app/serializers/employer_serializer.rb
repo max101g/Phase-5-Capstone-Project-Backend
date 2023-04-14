@@ -1,3 +1,3 @@
 class EmployerSerializer < ActiveModel::Serializer
-  attributes :id, :code, :company_name, :email, :location, :avatar, :description, :verified
+  attributes :employer_code, :company_name, :email, :location, :avatar, :description, :verified
 end
