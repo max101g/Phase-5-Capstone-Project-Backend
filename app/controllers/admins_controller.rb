@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
     def create
-        admin = Admin.create(admin_code: generate_code(12), full_name: params[:full_name], email: params[:email])
+        admin = Admin.create(admin_code: generate_code(12), full_name: params[:full_name], email: params[:email], user_code: params[:user_code])
         render json: admin, status: :created
     end 
     
