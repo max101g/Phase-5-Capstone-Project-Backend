@@ -22,6 +22,7 @@ gem "importmap-rails"
 
 gem "active_model_serializers", "~> 0.10.12"
 gem 'faker', '~> 2.18.0'
+gem 'jwt'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"

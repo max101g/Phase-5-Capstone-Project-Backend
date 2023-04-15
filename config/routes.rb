@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   # get all post comments based on post_code
   get "/comments/post/:post_code", to: "comments#post_comments"
 
+  # generate an access token to enable login
+  post '/generate-token/', to: 'auth#login'
+
   # Defines the root path route ("/")
   # root "articles#index"
 end
