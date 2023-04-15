@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :admins
-  resources :employers
+  resources :employers, only: [:create, :show, :update, :destroy]
   resources :seekers
   resources :users
   resources :jobtags
@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   resources :comments
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  # view all employers on platform
+  get "/employers/", to: "admins#view_all_employers"
+
   # verify profiles
-  patch "/employers/:id/verify",to: "employers#verify"
-  patch "/seekers/:id/verify", to: "seekers#verify"
+  patch "/employers/:id/verify",to: "admins#verify_employer"
+  patch "/seekers/:id/verify", to: "admins#verify_seeker"
 
   # custom job search, e.g. find doctor jobs
   get "/jobs/search/:jobtag_code", to: "jobs#search"
@@ -26,5 +29,4 @@ Rails.application.routes.draw do
   post '/generate-token/', to: 'auth#login'
 
   # Defines the root path route ("/")
-  # root "articles#index"
 end
