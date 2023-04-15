@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
             render json: { error: 'Invalid token' }, status: :unauthorized
           end
         else
-          render json: { error: 'Token not provided' }, status: :unauthorized
+          render json: { error: 'Token not provided' }, status: 403
         end
     end   
 end
