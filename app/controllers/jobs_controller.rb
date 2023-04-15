@@ -1,4 +1,7 @@
 class JobsController < ApplicationController
+    before_action :role_auth, only: [:create, :update, :destroy]
+
+
     def create
         job = Job.create(job_code: generate_code(12), job_name: params[:job_name], jobtag_code: params[:jobtag_code], employer_code: params[:employer_code])
         render json: job, status: :created
@@ -42,5 +45,21 @@ class JobsController < ApplicationController
 
     def job_params
         params.permit(:name, :jobtag_code)
+    end
+    
+    def role_auth
+        # Get token from request headers
+        role = ["EMPLOYER", "ADMIN"]
+        header = request.headers['Authorization']
+        token = header.split(' ').last if header
+        if token
+            begin
+                decoded_token = JWT.decode(token, Rails.application.secret_key_base)
+                user_role = decoded_token[0]['role']
+                unless  role.include?(user_role)
+                    render json: {error: 'Unauthorized To Access Resource'}, status: :unauthorized
+                end
+            end
+        end
     end
 end
