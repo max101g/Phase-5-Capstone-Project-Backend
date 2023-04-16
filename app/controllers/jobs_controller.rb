@@ -3,7 +3,7 @@ class JobsController < ApplicationController
 
 
     def create
-        job = Job.create(job_code: generate_code(12), job_name: params[:job_name], jobtag_code: params[:jobtag_code], employer_code: params[:employer_code])
+        job = Job.create!(job_code: generate_code(12), job_name: params[:job_name], jobtag_code: params[:jobtag_code], employer_code: params[:employer_code])
         render json: job, status: :created
     end
 

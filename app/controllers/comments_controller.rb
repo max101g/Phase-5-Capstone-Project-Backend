@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
     def create
-        comment = Comment.create(comment_code: generate_code(12), content:params[:content], post_code:params[:post_code], user_code:params[:user_code])
+        comment = Comment.create!(comment_code: generate_code(12), content:params[:content], post_code:params[:post_code], user_code:params[:user_code])
         render json: comment, status: :created
     end
 
@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     # '/comment/:id' edits an comment of id in params(Update)
     def update
         comment = find_comment
-        comment.update(comment_params)
+        comment.update!(comment_params)
         render json: comment, status: :ok
     end
 

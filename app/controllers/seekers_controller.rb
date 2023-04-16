@@ -1,7 +1,7 @@
 class SeekersController < ApplicationController
     before_action :authenticate_user
     def create
-        seeker = Seeker.create(seeker_code: generate_code(12), full_name: params[:full_name], email: params[:email], verified: params[:verified], user_code: params[:user_code])
+        seeker = Seeker.create!(seeker_code: generate_code(12), full_name: params[:full_name], email: params[:email], verified: params[:verified], user_code: params[:user_code])
         render json: seeker, status: :created
     end 
     
@@ -17,7 +17,7 @@ class SeekersController < ApplicationController
 
     def update
         seeker = find_seeker
-        seeker.update(seeker_params)
+        seeker.update!(seeker_params)
         render json: seeker, status: :ok
     end    
     

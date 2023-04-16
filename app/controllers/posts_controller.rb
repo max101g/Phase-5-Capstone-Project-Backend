@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     def create
-        post = Post.create(post_code: generate_code(12), title:params[:title], media:params[:media], description: params[:description], likes: params[:likes], user_code: params[:user_code])
+        post = Post.create!(post_code: generate_code(12), title:params[:title], media:params[:media], description: params[:description], likes: params[:likes], user_code: params[:user_code])
         render json: post, status: :created
     end
 

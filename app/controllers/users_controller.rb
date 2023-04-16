@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
     before_action :authenticate_user, except: :create
-
     def create
-        user = User.create(user_code: generate_code(12), username: params[:username], role: params[:role], password: params[:password], password_confirmation: params[:password_confirmation])
+        user = User.create!(user_code: generate_code(12), username: params[:username], role: params[:role], password: params[:password], password_confirmation: params[:password_confirmation])
         render json: user, status: :created
     end 
     
@@ -18,7 +17,7 @@ class UsersController < ApplicationController
 
     def update
         user = find_user
-        user.update(user_params)
+        user.update!(user_params)
         render json: user, status: :ok
     end
     

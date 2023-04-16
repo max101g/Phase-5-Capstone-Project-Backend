@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
     before_action :role_auth
 
     def create
-        admin = Admin.create(admin_code: generate_code(12), full_name: params[:full_name], email: params[:email], user_code: params[:user_code])
+        admin = Admin.create!(admin_code: generate_code(12), full_name: params[:full_name], email: params[:email], user_code: params[:user_code])
         render json: admin, status: :created
     end 
     
@@ -24,13 +24,13 @@ class AdminsController < ApplicationController
 
     def verify_employer
         employer = Employer.find(params[:id])
-        employer.update(verified: params[:verified])
+        employer.update!(verified: params[:verified])
         render json: employer, status: :ok
     end
 
     def verify_seeker
         seeker = Seeker.find(params[:id])
-        seeker.update(verified: params[:verified])
+        seeker.update!(verified: params[:verified])
         render json: seeker, status: :ok
     end
 

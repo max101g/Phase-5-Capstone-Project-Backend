@@ -2,7 +2,7 @@ class EmployersController < ApplicationController
     before_action :authenticate_user
     before_action :role_auth
     def create
-        employer = Employer.create(employer_code: generate_code(12), company_name: params[:company_name], email: params[:email], verified: params[:verified], user_code: params[:user_code])
+        employer = Employer.create!(employer_code: generate_code(12), company_name: params[:company_name], email: params[:email], verified: params[:verified], user_code: params[:user_code])
         render json: employer, status: :created
     end   
     
@@ -13,7 +13,7 @@ class EmployersController < ApplicationController
 
     def update
         employer = find_employer
-        employer.update(employer_params)
+        employer.update!(employer_params)
         render json: employer, status: :ok
     end    
     
