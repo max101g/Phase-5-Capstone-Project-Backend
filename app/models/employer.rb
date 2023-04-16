@@ -5,7 +5,7 @@ class Employer < ApplicationRecord
     # validations
     validates :company_name, presence: true
     validates :email, presence: true, uniqueness: true
-
+    
     # relations
     belongs_to :user, foreign_key: :user_code
     has_many :jobs
